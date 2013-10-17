@@ -1,0 +1,8 @@
+---
+applications:
+- name: spring-boot-cities
+  memory: 512M
+  instances: 1
+  host: cities-${random-word}
+  domain: cfapps.io
+  path: build/libs/spring-boot-cities.jar
