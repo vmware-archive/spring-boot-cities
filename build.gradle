@@ -5,11 +5,14 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.2.RELEASE")
+        classpath("org.cloudfoundry:cf-gradle-plugin:1.0.2")
     }
 }
 
+apply plugin: 'idea'
 apply plugin: 'java'
 apply plugin: 'spring-boot'
+apply plugin: 'cloudfoundry'
 
 repositories {
     mavenCentral()
@@ -37,3 +40,25 @@ task wrapper(type: Wrapper) {
     gradleVersion = '1.12'
 }
 
+tasks."cf-push".dependsOn assemble
+
+cloudfoundry {
+    target = "https://api.cf.scottfrederick.io"
+    space = "development"
+
+    application = "cities"
+    file = file("${jar.archivePath}")
+    host = "cities"
+    domain = "apps.scottfrederick.io"
+    memory = 512
+    instances = 1
+
+    trustSelfSignedCerts = true
+
+    services {
+        "cities-db" {
+            label = "p-mysql"
+            plan = "100mb"
+        }
+    }
+}
