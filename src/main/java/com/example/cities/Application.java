@@ -13,8 +13,8 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguratio
 @EnableAutoConfiguration
 @EnableJpaRepositories
 @Import(RepositoryRestMvcConfiguration.class)
-public class CitiesApplication {
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(CitiesApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
