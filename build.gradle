@@ -5,20 +5,19 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.2.RELEASE")
+        classpath("org.cloudfoundry:cf-gradle-plugin:1.0.3")
     }
 }
 
+apply plugin: 'idea'
 apply plugin: 'java'
 apply plugin: 'spring-boot'
 apply plugin: 'war'
+apply plugin: 'cloudfoundry'
 
 repositories {
     mavenCentral()
     maven { url "http://repo.spring.io/milestone" }
-}
-
-ext {
-    springCloudVersion = "0.9.8"
 }
 
 springBoot {
@@ -33,9 +32,9 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("org.springframework.data:spring-data-rest-webmvc")
-    compile("org.springframework.cloud:spring-service-connector:${springCloudVersion}")
-    compile("org.springframework.cloud:cloudfoundry-connector:${springCloudVersion}")
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile("org.springframework.cloud:spring-cloud-spring-service-connector:1.0.0.RELEASE")
+    compile("org.springframework.cloud:spring-cloud-cloudfoundry-connector:1.0.0.RELEASE")
     runtime("org.hsqldb:hsqldb")
     runtime("mysql:mysql-connector-java:5.1.25")
 
@@ -46,3 +45,20 @@ task wrapper(type: Wrapper) {
     gradleVersion = '1.12'
 }
 
+tasks.cfPush.dependsOn assemble
+
+cloudfoundry {
+    target = "https://api.cf.mycloud.com"
+    space = "development"
+
+    memory = 512
+
+    trustSelfSignedCerts = true
+
+    services {
+        "cities-db" {
+            label = "p-mysql"
+            plan = "100mb-dev"
+        }
+    }
+}

@@ -1,8 +1,11 @@
 ---
 applications:
-- name: spring-boot-cities
+- name: cities
   memory: 512M
   instances: 1
-  host: cities-${random-word}
-  domain: cfapps.io
   path: build/libs/spring-boot-cities.jar
+  timeout: 180
+  services:
+  - cities-db
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
