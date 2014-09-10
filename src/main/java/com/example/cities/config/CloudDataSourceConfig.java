@@ -14,11 +14,6 @@ import javax.sql.DataSource;
 public class CloudDataSourceConfig extends AbstractCloudConfig {
     @Bean
     public DataSource dataSource() {
-        PooledServiceConnectorConfig.PoolConfig poolConfig = new PooledServiceConnectorConfig.PoolConfig(20, 200);
-        DataSourceConfig.ConnectionConfig connectionConfig =
-                new DataSourceConfig.ConnectionConfig("sessionVariables=sql_mode='ANSI';characterEncoding=UTF-8");
-        DataSourceConfig serviceConfig =
-                new DataSourceConfig(poolConfig, connectionConfig);
-        return connectionFactory().dataSource("cities-db", serviceConfig);
+        return connectionFactory().dataSource();
     }
 }
