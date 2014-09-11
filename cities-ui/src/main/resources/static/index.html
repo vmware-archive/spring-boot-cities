@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.2.0/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="webjars/angular-ui/0.4.0/angular-ui.css">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body ng-app="citiesUiApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div ng-cloak class="splash" >
+      <div class="container">Loading...</div>
+    </div>
+
+    <nav class="navbar navbar-default" role="navigation" ng-cloak>
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" ui-sref="home.jobs.tabs.definitions"><span></span></a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="container-fluid">
+        <div class="container xd-container">
+            <!--<div ui-view id="xd-content" class="tab-content"></div>-->
+            <div id="xd-content" class="tab-content">
+                <div ng-include src="'views/cities.html'"></div>
+            </div>
+        </div>
+      </div>
+
+      <div class="footer">
+      </div>
+    </div>
+
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+
+    <script src="webjars/jquery/2.1.1/jquery.js"></script>
+
+    <script src="webjars/angularjs/1.2.23/angular.js"></script>
+    <script src="webjars/angularjs/1.2.23/angular-resource.js"></script>
+    <script src="webjars/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.js"></script>
+    <script src="webjars/angular-ui/0.4.0/angular-ui.js"></script>
+    <script src="webjars/angular-ui-router/0.2.11/angular-ui-router.js"></script>
+    <script src="webjars/angularjs-google-maps/0.6.0/ng-map.js"></script>
+
+    <script src="webjars/bootstrap/3.2.0/js/bootstrap.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/cities-controller.js"></script>
+</body>
+</html>

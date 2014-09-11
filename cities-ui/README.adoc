@@ -1,0 +1,22 @@
+= Consuming a Microservice with Spring Cloud
+
+This repository contains a web UI application meant to be used a consumer of the
+https://github.com/cf-platform-eng/spring-boot-cities[spring-boot-cities] microservice.
+This app connects to the microservice using a Spring Cloud extension.
+
+To build and deploy the application, you will need to:
+
+* install http://www.gradle.org/installation[Gradle]
+* install the http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html[Cloud Foundry CLI]
+* use the Cloud Foundry CLI to http://docs.cloudfoundry.org/devguide/installcf/whats-new-v6.html#login[log into your Cloud Foundry system]
+* build and deploy the https://github.com/cf-platform-eng/spring-boot-cities[spring-boot-cities] service
+** this web UI app requires that you build and deploy the https://github.com/cf-platform-eng/spring-boot-cities/tree/json[`json` branch] of spring-boot-cites, not the `master` branch
+
+Once these prerequisites are met, you can follow these steps to build and deploy the app to Cloud Foundry:
+
+[source,bash]
+----
+$ gradle assemble
+$ cf create-user-provided-service cities-ws -p '{ "uri": "[route to spring-boot-cities]", "tag": "cities" }'
+$ cf push --random-route
+----

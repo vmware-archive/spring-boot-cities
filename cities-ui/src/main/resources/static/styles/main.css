@@ -1,0 +1,40 @@
+@font-face{font-family:'varela_roundregular';src:url('../fonts/varela_round-webfont.eot');src:url('../fonts/varela_round-webfont.eot?#iefix') format('embedded-opentype'),url('../fonts/varela_round-webfont.woff') format('woff'),url('../fonts/varela_round-webfont.ttf') format('truetype'),url('../fonts/varela_round-webfont.svg#varela_roundregular') format('svg');font-weight:normal;font-style:normal;}@font-face{font-family:'montserratregular';src:url('../fonts/montserrat-webfont.eot');src:url('../fonts/montserrat-webfont.eot?#iefix') format('embedded-opentype'),url('../fonts/montserrat-webfont.woff') format('woff'),url('../fonts/montserrat-webfont.ttf') format('truetype'),url('../fonts/montserrat-webfont.svg#montserratregular') format('svg');font-weight:normal;font-style:normal;}body,h1,h2,h3,p,input{margin:0;font-weight:400;font-family:"varela_roundregular",sans-serif;color:#34302d;}
+h1{font-size:24px;line-height:30px;font-family:"montserratregular",sans-serif;}
+h2{font-size:18px;font-weight:700;line-height:24px;margin-bottom:10px;font-family:"montserratregular",sans-serif;}
+h3{font-size:16px;line-height:24px;margin-bottom:10px;font-weight:700;}
+strong{font-weight:700;font-family:"montserratregular",sans-serif;}
+.navbar{border-top:4px solid #6db33f;background-color:#34302d;margin-bottom:0px;border-bottom:0;border-left:0;border-right:0;}
+.navbar a.navbar-brand{background:url("../images/spring-logo-platform.png") -1px -1px no-repeat;margin:12px 0 6px;width:229px;height:46px;display:inline-block;text-decoration:none;padding:0;}
+.navbar a.navbar-brand span{display:block;width:229px;height:46px;background:url("/images/spring-logo-platform.png") -1px -48px no-repeat;opacity:0;-moz-transition:opacity 0.12s ease-in-out;-webkit-transition:opacity 0.12s ease-in-out;-o-transition:opacity 0.12s ease-in-out;}
+.navbar a:hover.navbar-brand span{opacity:1;}
+.navbar li>a,.navbar-text{font-family:"montserratregular",sans-serif;text-shadow:none;font-size:14px;padding:28px 20px;transition:all 0.15s;-webkit-transition:all 0.15s;-moz-transition:all 0.15s;-o-transition:all 0.15s;-ms-transition:all 0.15s;}
+.navbar li>a{text-transform:uppercase;}
+.navbar .navbar-text{margin-top:0;margin-bottom:0;}
+.navbar li:hover>a{color:#eeeeee;background-color:#6db33f;}
+.navbar-toggle{border-width:0;}.navbar-toggle .icon-bar+.icon-bar{margin-top:3px;}
+.navbar-toggle .icon-bar{width:19px;height:3px;}
+.nav,.pagination,.carousel,.panel-title a{cursor:pointer;}
+.table>thead>tr>th{background-color:#3c3834;color:#f1f1f1;}
+.table-filter{background-color:#34302d;padding:9px 12px;}
+.nav>li>a{color:#838789;}
+.btn-default{border-width:2px;transition:border 0.15s;-webkit-transition:border 0.15s;-moz-transition:border 0.15s;-o-transition:border 0.15s;-ms-transition:border 0.15s;}.btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active,.open .dropdown-toggle.btn-default{background-color:#34302d;border-color:#34302d;}
+.container .text-muted{margin:20px 0;}
+code{font-size:80%;}
+.xd-container{margin-top:40px;margin-bottom:100px;padding-left:5px;padding-right:5px;}
+h1{margin-bottom:15px;}
+.index-page--subtitle{font-size:16px;line-height:24px;margin:0 0 30px;}
+.form-horizontal button.btn-inverse{margin-left:32px;}
+[ng-cloak].splash{display:block !important;}
+[ng-cloak]{display:none;}
+.splash{background:#6db33f;color:#34302d;display:none;}
+.error-page{margin-top:100px;text-align:center;}
+.error-page .error-title{font-size:24px;line-height:24px;margin:30px 0 0;}
+table td{vertical-align:middle !important;}
+table td .progress{margin-bottom:0;}
+table td.action-column{width:1px;}
+.help-block{color:#838789;}
+.angular-google-map-container{width:100%;height:300px;}
+.angular-google-map img{max-width:inherit;}
+.angular-google-map{display:block;}
+@media (max-width:768px){.navbar-toggle{position:absolute;z-index:9999;left:0px;top:0px;} .navbar a.navbar-brand{display:block;margin:0 auto 0 auto;width:148px;height:50px;float:none;background:url("../images/spring-logo-xd-mobile.png") 0 center no-repeat;} .homepage-billboard .homepage-subtitle{font-size:21px;line-height:21px;} .navbar a.navbar-brand span{display:none;} .navbar{border-top-width:0;} .xd-container{margin-top:20px;margin-bottom:30px;} .index-page--subtitle{margin-top:10px;margin-bottom:30px;}}
+
