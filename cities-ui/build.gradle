@@ -21,20 +21,18 @@ targetCompatibility = 1.7
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
+    compile "org.example.cities.client:cities-client:0.0.1.SNAPSHOT"
+
     // Spring
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "org.springframework.data:spring-data-commons"
-    compile "org.springframework.hateoas:spring-hateoas"
-    compile "org.springframework.cloud:spring-cloud-spring-service-connector:1.1.0.RELEASE"
-    compile "org.springframework.cloud:spring-cloud-cloudfoundry-connector:1.1.0.RELEASE"
-
-    // Feign
-    compile 'com.netflix.feign:feign-core:6.1.3'
-    compile 'com.netflix.feign:feign-jackson:6.1.3'
+    compile("org.springframework.cloud:spring-cloud-spring-service-connector:1.1.0.RELEASE")
+    compile("org.springframework.cloud:spring-cloud-cloudfoundry-connector:1.1.0.RELEASE")
 
     // Webjars
     compile 'org.webjars:bootstrap:3.2.0'
@@ -49,12 +47,13 @@ dependencies {
     testCompile "org.springframework.boot:spring-boot-starter-test"
 }
 
-jar {
-    baseName = 'spring-boot-cities-ui'
-    version =  ''
-}
+project.group = 'org.example.cities.ui'
+project.version = '0.0.1.SNAPSHOT'
 
 war {
+    baseName = 'cities-ui'
+    version =  ''
+
     dependsOn 'lesscss'
 }
 

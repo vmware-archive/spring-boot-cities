@@ -1,4 +1,4 @@
-package com.example.cities.cloud;
+package com.example.cities.client.cloud;
 
 import org.springframework.cloud.service.UriBasedServiceInfo;
 

@@ -1,6 +1,6 @@
-package com.example.cities.cloud;
+package com.example.cities.config;
 
-import com.example.cities.repository.CityRepository;
+import com.example.cities.client.CityRepository;
 import org.springframework.cloud.config.java.AbstractCloudConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

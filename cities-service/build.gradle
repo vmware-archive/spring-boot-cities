@@ -32,6 +32,14 @@ dependencies {
     testCompile("junit:junit")
 }
 
+project.group = 'org.example.cities.service'
+project.version = '0.0.1.SNAPSHOT'
+
+jar {
+    baseName = 'cities-service'
+    version = ''
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '1.12'
 }

@@ -1,4 +1,4 @@
-package com.example.cities.model;
+package com.example.cities.client.model;
 
 import java.io.Serializable;
 

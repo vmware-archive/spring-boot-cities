@@ -1,8 +1,7 @@
-package com.example.cities.local;
+package com.example.cities.config;
 
-import com.example.cities.repository.CityRepository;
-import feign.Feign;
-import feign.jackson.JacksonDecoder;
+import com.example.cities.client.CityRepository;
+import com.example.cities.client.CityRepositoryFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -12,8 +11,6 @@ import org.springframework.context.annotation.Profile;
 public class LocalConfiguration {
     @Bean
     public CityRepository cityRepository() {
-        return Feign.builder()
-                .decoder(new JacksonDecoder())
-                .target(CityRepository.class, "http://localhost:8080/cities");
+        return new CityRepositoryFactory().create("http://localhost:8080/cities");
     }
 }

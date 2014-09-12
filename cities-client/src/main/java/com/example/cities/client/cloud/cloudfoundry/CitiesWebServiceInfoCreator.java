@@ -1,6 +1,6 @@
-package com.example.cities.cloud.cloudfoundry;
+package com.example.cities.client.cloud.cloudfoundry;
 
-import com.example.cities.cloud.WebServiceInfo;
+import com.example.cities.client.cloud.WebServiceInfo;
 import org.springframework.cloud.cloudfoundry.CloudFoundryServiceInfoCreator;
 import org.springframework.cloud.cloudfoundry.Tags;
 
