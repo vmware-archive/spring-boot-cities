@@ -85,7 +85,22 @@ $ cf create-service [service-label] [service-plan] cities-db
 $ cd cities-service && cf push && cd ..
 ----
 
-**Note**: The microservice loads a very large dataset at startup to show the power of the paging, sorting, and search capabilities in Spring Data. Free database service tiers on public Cloud Foundry services often limit the size of the database you can use and the number of records you can load at startup. You will likely need to reduce the size of the link:cities-service/src/main/resources/import.sql[dataset] when deploying to a public Cloud Foundry service with a free database tier.
+==== Note on data import
+
+The microservice loads a very large dataset at startup to show the power of the paging, sorting, and search capabilities in Spring Data. The default link:cities-service/src/main/resources/import.sql[`import.sql`] file contains just under 43,000 small rows (representing all postal codes in the United States) that get loaded when the application starts.
+
+Free database service tiers on public Cloud Foundry services often limit the size of the database you can use and the number of records you can load at startup. You will likely need to reduce the size of the dataset when deploying to a public Cloud Foundry service with a free database tier. You can use the provided link:cities-service/src/main/resources/import-TX.sql[`import-TX.sql`], which contains just under 2,700 rows (representing postal codes in the US state of Texas), or you can edit the `import.sql` file to create your own subset.
+
+The default `import.sql` file works with the in-memory HyperSQL database (HSQLDB) and MySQL. If you want the microservice to use a PostgreSQL database, you can use the link:cities-service/src/main/resources/import-pgsql.sql[`import-pgsql.sql`] import file or the reduced link:cities-service/src/main/resources/import-TX-pgsql.sql[`import-TX-pgsql.sql`] file.
+
+To use any import file other than the default `import.sql`, edit the file link:cities-service/src/main/resources/application.properties[`application.properties`] and add a line like this, using the appropriate file name:
+
+[source]
+----
+spring.jpa.properties.hibernate.hbm2ddl.import_files=import-pgsql.sql
+----
+
+A path is not necessary, just the file name will suffice. You will need to re-build the .war file with `gradle assemble` after changing `appliaction.properties'.
 
 === Deploying the web UI
 
