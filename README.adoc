@@ -100,7 +100,7 @@ To use any import file other than the default `import.sql`, edit the file link:c
 spring.jpa.properties.hibernate.hbm2ddl.import_files=import-pgsql.sql
 ----
 
-A path is not necessary, just the file name will suffice. You will need to re-build the .war file with `gradle assemble` after changing `appliaction.properties'.
+A path is not necessary, just the file name will suffice. You will need to re-build the .war file with `gradle assemble` after changing `application.properties`.
 
 === Deploying the web UI
 
