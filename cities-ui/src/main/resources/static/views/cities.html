@@ -4,12 +4,18 @@
     <form name="searchForm" role="form" class="form-horizontal">
         <div class="form-group">
             <label class="control-label col-md-2" for="name">City Name</label>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <input type="text" class="form-control" id="name" name="name" ng-model="searchCity.name">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <button class="btn btn-primary btn-md active" ng-disabled="!(searchCity.name)" ng-click="search()" >Search</button>
                 <button class="btn btn-warning btn-md active" ng-click="clearSearch()">Clear</button>
+            </div>
+
+            <label class="control-label col-md-2" for="pageSize">Items per page</label>
+            <div class="col-md-1">
+                <select class="form-control" id="pageSize" name="pageSize"
+                        ng-model="itemsPerPage" ng-options="option for option in itemsPerPageOptions" ng-change="refresh()"></select>
             </div>
         </div>
     </form>
@@ -38,7 +44,10 @@
     </table>
 
     <div class="col-md-12 text-center center-block">
-        <pagination ng-model="pageNumber" ng-change="pageChanged()"
+        <p>Displaying items <strong>{{firstItemIndex}}</strong> through <strong>{{lastItemIndex}}</strong> of <strong>{{pagedCities.page.totalElements}}</strong></p>
+    </div>
+    <div class="col-md-12 text-center center-block">
+        <pagination ng-model="pageNumber" ng-change="refresh()"
                     total-items="pagedCities.page.totalElements" items-per-page="pagedCities.page.size"
                     boundary-links="true" max-size="maxPageLinks"
                     previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>

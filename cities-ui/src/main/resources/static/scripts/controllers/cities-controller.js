@@ -23,7 +23,10 @@ angular.module('citiesUiApp', ['ngResource', 'ui.bootstrap']).
             })
         }
 
-        $scope.pageChanged = function() {
+        $scope.refresh = function() {
+            $scope.firstItemIndex = ($scope.itemsPerPage * ($scope.pageNumber - 1)) + 1;
+            $scope.lastItemIndex = Math.min(($scope.firstItemIndex + $scope.itemsPerPage) - 1, $scope.pagedCities.page.totalElements);
+
             if ($scope.searchCity.name)
                 search();
             else
@@ -43,9 +46,20 @@ angular.module('citiesUiApp', ['ngResource', 'ui.bootstrap']).
             $scope.pageNumber = 1;
             $scope.itemsPerPage = 15;
             $scope.maxPageLinks = 15;
+            $scope.itemsPerPageOptions = [5, 10, 15, 25, 50];
             $scope.searchCity = {
                 name: ""
             };
-            list();
+            $scope.pagedCities = {
+                "contents": [],
+                "page": {
+                    "number": 0,
+                    "size": 1,
+                    "totalElements": 1,
+                    "totalPages": 1
+                }
+            };
+
+            $scope.refresh();
         };
     });
