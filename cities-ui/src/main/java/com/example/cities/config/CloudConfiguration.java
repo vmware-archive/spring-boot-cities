@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile("cloud")
+@Profile({"cloud","local"})
 public class CloudConfiguration extends AbstractCloudConfig {
     @Bean
     public CityRepository cityRepository() {
