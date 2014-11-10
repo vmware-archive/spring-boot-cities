@@ -11,6 +11,6 @@ import org.springframework.context.annotation.Profile;
 public class DefaultConfiguration {
     @Bean
     public CityRepository cityRepository() {
-        return new CityRepositoryFactory().create("http://localhost:8080/cities");
+        return new CityRepositoryFactory().create("http://localhost:8080");
     }
 }
