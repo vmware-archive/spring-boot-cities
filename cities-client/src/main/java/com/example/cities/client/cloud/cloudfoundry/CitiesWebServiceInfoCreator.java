@@ -8,17 +8,10 @@ import java.util.Map;
 
 public class CitiesWebServiceInfoCreator extends CloudFoundryServiceInfoCreator<WebServiceInfo> {
 
-    public static final String CITIES_TAG = "cities";
+    public static final String CITIES_PREFIX = "cities";
 
     public CitiesWebServiceInfoCreator() {
-        super(new Tags(CITIES_TAG));
-    }
-
-    @Override
-    public boolean accept(Map<String, Object> serviceData) {
-        Map<String, Object> credentials = getCredentials(serviceData);
-        String tag = (String) credentials.get("tag");
-        return super.accept(serviceData) || CITIES_TAG.equals(tag);
+        super(new Tags(), CITIES_PREFIX);
     }
 
     @Override
@@ -26,13 +19,8 @@ public class CitiesWebServiceInfoCreator extends CloudFoundryServiceInfoCreator<
         String id = (String) serviceData.get("name");
 
         Map<String, Object> credentials = getCredentials(serviceData);
-        String uri = getStringFromCredentials(credentials, "uri", "url");
+        String uri = getUriFromCredentials(credentials);
 
         return new WebServiceInfo(id, uri);
-    }
-
-    @SuppressWarnings("unchecked")
-    private Map<String, Object> getCredentials(Map<String, Object> serviceData) {
-        return (Map<String, Object>) serviceData.get("credentials");
     }
 }

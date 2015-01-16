@@ -1,7 +1,7 @@
 buildscript {
     ext {
         springBootVersion = '1.1.6.RELEASE'
-        springCloudVersion = '1.1.0.RELEASE'
+        springCloudVersion = '1.1.1.RELEASE'
     }
 
     repositories {
@@ -102,7 +102,6 @@ project(':cities-ui') {
         compile "org.springframework.boot:spring-boot-starter-actuator"
         compile "org.springframework.data:spring-data-commons"
         compile("org.springframework.cloud:spring-cloud-spring-service-connector:${springCloudVersion}")
-
 
         // Webjars
         compile 'org.webjars:bootstrap:3.2.0'

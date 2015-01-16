@@ -107,7 +107,7 @@ A path is not necessary, just the file name will suffice. You will need to re-bu
 Once the microservice is deployed and running, you can create a user-provided service with the connection details for the microservice (which will be used by the client library) and then push the web UI app:
 [source,bash]
 ----
-$ cf create-user-provided-service cities-ws -p '{ "uri": "[route to cities-service]", "tag": "cities" }'
+$ cf create-user-provided-service cities-ws -p '{ "citiesuri": "[route to cities-service]" }'
 $ cd cities-ui && cf push && cd ..
 ----
 
