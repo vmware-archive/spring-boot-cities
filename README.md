@@ -14,11 +14,11 @@ on your command line. You don't need to have gradle installed.
 
 ###Running the app on Cloud Foundry
 To run this on Cloud Foundry, simply run the script:
-```./scripts/first_time_push.sh ```
+```./first_time_push.sh ```
 
 This script creates the required Cloud Foundry services, tidies up previous installations, pushes the app and binds the app to the service. Once the env is setup correctly, feel free to use the other script which will both build and push the app to cloud foundry:
 
-```./scripts/push.sh ```
+```./push.sh ```
 
 Alternately to build the application yourself, simply run:
 
