@@ -1,4 +1,4 @@
-# SBoot-Cities-Service
+# spring-boot-cities-service
 This is a very simple Spring Boot project which demonstrates, that with only small a footprint of code its possible to a create a complex webservice which exposes CRUD operations as restful endpoints. This microservice runs on a local machine or on Cloud Foundry. 
 
 ![Cities](/docs/Arch.png)
