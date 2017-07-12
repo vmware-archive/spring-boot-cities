@@ -1,0 +1,2 @@
+./gradlew build buildDocker
+docker run -p 8080:8080 -t sufyaankazi/cities-service:1.0
